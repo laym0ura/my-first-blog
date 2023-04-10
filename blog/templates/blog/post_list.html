@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+<a href="{% url 'scatterplot' %}" class="btn btn-primary" style="background-color: black; color: pink;">Ver Gráfico</a>
 {% for post in posts %}
     <div class="post">
         <div class="date">
