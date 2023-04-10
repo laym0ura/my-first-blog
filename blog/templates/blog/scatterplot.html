@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfico de Dispersão com d3.js</title>
+  <script src="{% static 'js/d3.v7.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+
+
+  <h1>Gráfico de Dispersão com a biblioteca D3</h1>
+  <div id="scatter-plot"></div>
+  <div id="scatterplot"></div>
+  <input type="hidden" id="serie_x" value="{{ serie_x }}">
+  <input type="hidden" id="serie_y" value="{{ serie_y }}">
+
+  <script src="{% static 'js/create_graph.js' %}"></script>
+{% endblock %}
+
+</body>
+</html>
+
+
