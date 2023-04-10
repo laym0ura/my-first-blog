@@ -1,13 +1,28 @@
 {% extends 'blog/base.html' %}
+
 {% block content %}
-<a href="{% url 'scatterplot' %}" class="btn btn-primary" style="background-color: black; color: pink;">Ver Gráfico</a>
-{% for post in posts %}
-    <div class="post">
-        <div class="date">
-            {{ post.published_date }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% for post in posts %}
+      <div class="card my-3">
+        <div class="card-header">
+          <h2 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+          <small class="text-muted">{{ post.published_date }}</small>
         </div>
-        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class="card-body">
+          <p class="card-text">{{ post.text|linebreaksbr }}</p>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-{% endfor %}
+    <div class="col-md-4">
+      <div class="card my-3">
+        <div class="card-body text-center">
+          <a href="{% url 'scatterplot' %}" class="btn btn-primary btn-lg" style="background-color: orange; color: white;">Ver Gráfico</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
